@@ -3,7 +3,7 @@ import helmet from "helmet";
 import cors from "cors";
 import routes from "../routes";
 import { errorHandler } from "../middleware/error.middleware";
-import { notFoundHandler } from "../middleware/not-found.middleware";
+import { notFoundHandler } from "../middleware/notFound.middleware";
 
 const createServer = () => {
   const app = express();
