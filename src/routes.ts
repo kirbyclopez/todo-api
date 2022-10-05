@@ -1,5 +1,6 @@
 import { Express, Request, Response } from "express";
 import { listRouter } from "./router/list.router";
+import { sessionRouter } from "./router/session.router";
 import { userRouter } from "./router/user.router";
 
 const routes = (app: Express) => {
@@ -9,6 +10,7 @@ const routes = (app: Express) => {
 
   app.use("/api/lists", listRouter);
   app.use("/api/register", userRouter);
+  app.use("/api/auth", sessionRouter);
 };
 
 export default routes;
