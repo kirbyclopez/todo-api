@@ -1,5 +1,9 @@
 import express, { Request, Response } from "express";
-import { createUserSessionHandler } from "../controller/session.controller";
+import {
+  createUserSessionHandler,
+  getUserSessionsHandler,
+} from "../controller/session.controller";
+import requireUser from "../middleware/requireUser.middleware";
 import validateResource from "../middleware/validateResource.middleware";
 import { createSessionSchema } from "../schema/session.schema";
 
@@ -11,3 +15,6 @@ sessionRouter.post(
   validateResource(createSessionSchema),
   createUserSessionHandler
 );
+
+// Get Active Sessions
+sessionRouter.get("/sessions", requireUser, getUserSessionsHandler);

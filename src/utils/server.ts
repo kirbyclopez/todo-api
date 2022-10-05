@@ -4,6 +4,7 @@ import cors from "cors";
 import routes from "../routes";
 import { errorHandler } from "../middleware/error.middleware";
 import { notFoundHandler } from "../middleware/notFound.middleware";
+import { deserializeUser } from "../middleware/deserializeUser.middleware";
 
 const createServer = () => {
   const app = express();
@@ -12,7 +13,7 @@ const createServer = () => {
   app.use(cors());
   app.use(express.json());
 
-  //app.use(deserializeUser);
+  app.use(deserializeUser);
 
   routes(app);
 
