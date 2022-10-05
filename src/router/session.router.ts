@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import {
   createUserSessionHandler,
+  deleteSessionHandler,
   getUserSessionsHandler,
 } from "../controller/session.controller";
 import requireUser from "../middleware/requireUser.middleware";
@@ -18,3 +19,6 @@ sessionRouter.post(
 
 // Get Active Sessions
 sessionRouter.get("/sessions", requireUser, getUserSessionsHandler);
+
+// Delete Session
+sessionRouter.delete("/sessions", requireUser, deleteSessionHandler);

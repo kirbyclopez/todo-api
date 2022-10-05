@@ -1,5 +1,5 @@
 import { get } from "lodash";
-import { FilterQuery } from "mongoose";
+import { FilterQuery, UpdateQuery } from "mongoose";
 import SessionModel, { SessionDocument } from "../model/session.model";
 import { signJwt, verifyJwt } from "../utils/jwt.utils";
 import { findUser } from "./user.service";
@@ -12,6 +12,13 @@ export const createSession = async (userId: string, userAgent: string) => {
 
 export const findSessions = async (query: FilterQuery<SessionDocument>) => {
   return SessionModel.find(query).lean();
+};
+
+export const updateSession = async (
+  query: FilterQuery<SessionDocument>,
+  update: UpdateQuery<SessionDocument>
+) => {
+  return SessionModel.updateOne(query, update);
 };
 
 export const reIssueAccessToken = async ({
