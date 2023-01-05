@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx tsc",
-    "start": "npm run build && node build/app.js",
+    "start": "node build/app.js",
+    "deploy": "npm run build && npm run start",
     "dev": "ts-node-dev --respawn --transpile-only src/app.ts"
   },
   "author": "Kirby Lopez",
