@@ -1,4 +1,4 @@
-require("dotenv").config();
+if (process.env.NODE_ENV !== "production") require("dotenv").config();
 
 import connect from "./utils/connect";
 import logger from "./utils/logger";
