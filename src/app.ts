@@ -6,11 +6,11 @@ import createServer from "./utils/server";
 
 const host =
   process.env.STATUS === "production"
-    ? process.env.PROD_HOST
+    ? process.env.HOST
     : process.env.DEV_HOST || "localhost";
 const port =
   process.env.STATUS === "production"
-    ? process.env.PROD_PORT
+    ? process.env.PORT
     : process.env.DEV_PORT || 5000;
 
 const app = createServer();
